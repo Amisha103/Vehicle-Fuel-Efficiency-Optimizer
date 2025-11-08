@@ -1,0 +1,15 @@
+cat_Gross_Indicated_Thermal_Efficiency
+num_Cylinder_Pressure_Peak
+cat_Cylinder_Pressure_Peak
+cat_BSFC
+num_EGR_Rate
+cat_Soot_Emissions
+num_Soot_Emissions
+num_Target_Score
+num_BSFC
+cat_Target_Score
+cat_Boost_Pressure
+num_CO_Emissions
+cat_Diesel_Energy_Share
+num_Gasoline_Energy_Share
+cat_CO_Emissions
