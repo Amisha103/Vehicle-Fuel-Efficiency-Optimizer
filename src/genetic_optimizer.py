@@ -8,9 +8,7 @@ import warnings
 
 warnings.filterwarnings("ignore")
 
-# =========================
-# 🔧 Genetic Algorithm Config
-# =========================
+
 POPULATION_SIZE = 40      # Number of individuals in each generation
 GENERATIONS = 20          # Total evolutionary iterations
 MUTATION_RATE = 0.1       # Probability of mutation
@@ -20,34 +18,29 @@ RANDOM_SEED = 42          # Reproducibility
 np.random.seed(RANDOM_SEED)
 random.seed(RANDOM_SEED)
 
-# =========================
-# 1️⃣ Load Processed Data
-# =========================
-print("🚀 Loading processed dataset...")
+
+
 data = pd.read_csv("data/processed_engine_data.csv")
 
 target_col = "num_Gross_Indicated_Thermal_Efficiency"
 X = data.drop(columns=[target_col])
 y = data[target_col]
 
-# Encode categorical columns (if any)
+
 categorical_cols = X.select_dtypes(include=['object']).columns.tolist()
 if categorical_cols:
-    print(f"🔠 Encoding categorical columns: {categorical_cols}")
+    print(f"Encoding categorical columns: {categorical_cols}")
     X = pd.get_dummies(X, columns=categorical_cols, drop_first=True)
 else:
-    print("✅ No categorical columns detected.")
+    print("No categorical columns detected.")
 
-# =========================
-# 2️⃣ Normalize numeric features
-# =========================
-print("⚙️ Scaling numeric features...")
+
+print("Scaling numeric features...")
 scaler = MinMaxScaler()
 X_scaled = scaler.fit_transform(X)
 
 # =========================
-# 3️⃣ Train Random Forest Model
-# =========================
+
 print("🌲 Training RandomForest model...")
 rf = RandomForestRegressor(
     n_estimators=150, random_state=RANDOM_SEED, n_jobs=-1
